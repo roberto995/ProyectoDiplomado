@@ -1,0 +1,36 @@
+Doctores{
+    Id_D numerico
+    Usua_D varchar
+    Pass varchar
+}
+
+Pacientes{
+    Id_P numerico
+    Nom_P varchar
+    Ape_P varchar
+    Edad numerico
+    Domicilio varchar
+    Telefono numerico
+    Correo varchar
+    T_Sangre varchar
+    Alergia varchar
+    Habi_con varchar
+    Nom_E varchar
+}
+
+Historial{
+    Id_His numerico
+    Id_P numerico
+    Fecha date
+    Comentarios varchar
+}
+
+Examenes_M{
+    Id_E numerico
+    Id_P numerico
+    Nom_E varchar
+    Nom_P varchar
+    Fecha date
+    Comentarios varchar
+    status varchar (1)
+}
