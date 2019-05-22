@@ -1,5 +1,9 @@
 function pacientes(){
-    document.getElementById('contenedor').innerHTML="";
+	document.getElementById('contenedor').innerHTML="";
+	document.getElementById('grid-container2').innerHTML="HISTORIAL CLÍNICO";
+	document.getElementById('grid-container3').innerHTML="EXAMENES MÉDICOS";
+	document.getElementById('grid-container2').style.visibility = "hidden";
+	document.getElementById('grid-container3').style.visibility = "hidden";
 	//AJAX,
 	paciente = new XMLHttpRequest();
 	paciente.open('GET','../PHP/pacientes.php',true);
@@ -24,7 +28,8 @@ function pacientes(){
 
 function histo(id){
 	document.getElementById('contenedor').innerHTML="";
-	
+	document.getElementById('grid-container2').style.visibility = "visible";
+	document.getElementById('grid-container3').style.visibility = "visible";
 	pacienteH = new XMLHttpRequest();
 	pacienteH.open('GET','../PHP/pacientesMD.php',true);
 	pacienteH.send();
@@ -40,7 +45,7 @@ function histo(id){
 			 "<div class='grid-item'><br>Nombre<br>"+ pacH[j].nom_p +" "+ pacH[j].ape_p +"<br><br> Edad <br>"+ pacH[j].edad +"</div>"+
 			 "<div class='grid-item'><br>Telefono y correo <br>"+ pacH[j].telefono +" "+ pacH[j].correo +"<br><br> Domicilio <br>"+ pacH[j].domicilio +"</div>"+
 			 "<div class='grid-item'><br>Tipo de sangre <br>"+ pacH[j].t_sangre +"<br><br> Alergias <br>"+ pacH[j].alergia +"</div>"+
-			 "</div><br> <h2 class='hc'>HISTORIAL CLINICO</h2>";
+			 "</div>";
 				 }
 			}
 			histo_medico(id);
@@ -60,10 +65,10 @@ function histo_medico(idp){
 			console.log(pacHM);
 			 for(var k = 0; k < pacHM.length; k++){
 				 if(idp == pacHM[k].id_p){
-					contenedo = document.getElementById('contenedor');
-					contenedo.innerHTML += "<div class='grid-container2'><div class='grid-item2'>" + 
-					pacHM[k].fecha + " | " + pacHM[k].comentarios + "</div></div>";
-				 }
+					contenedo = document.getElementById('grid-container2');
+					contenedo.innerHTML += "<div class='grid-item2 id='grid-item'>" + 
+					pacHM[k].fecha + " | " + pacHM[k].comentarios + "</div><br>";
+				}
 			}
 		}
 	}
@@ -80,12 +85,12 @@ function histo_examen(ide){
 			console.log(pacEM);
 			 for(var m = 0; m < pacEM.length; m++){
 				 if(ide == pacEM[m].Id_P){
-					contenedor = document.getElementById('contenedor');
-					contenedor.innerHTML += "<div class='grid-container3'><div class='grid-item3'>" + 
+					contenedor = document.getElementById('grid-container3');
+					contenedor.innerHTML += "<div class='grid-item3'>" + 
 					pacEM[m].Fecha_e + " | " +"Folio: " + pacEM[m].Id_E + " | "+ pacEM[m].Nom_E+ 
-					'<input type="button" id="bstatus" name="bstatus" class="bstatus" value="'+pacEM[m].status+'"></div></div>';
+					'<input type="button" id="bstatus" name="bstatus" class="bstatus" value="'+pacEM[m].status+'"></div>';
 				 }
-			}bcolor()
+			}bcolor();
 		}
 	}
 }
