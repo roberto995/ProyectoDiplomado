@@ -15,7 +15,8 @@ Pacientes{
     T_Sangre varchar
     Alergia varchar
     Habi_con varchar
-    Nom_E varchar
+    Nom_E varchar -- Nombre de Examen
+    Diagnostico varchar
 }
 
 Historial{
@@ -28,8 +29,8 @@ Historial{
 Examenes_M{
     Id_E numerico
     Id_P numerico
-    Nom_E varchar
-    Nom_P varchar
+    Nom_E varchar --Nombre de examen
+    Nom_P varchar --Nombre paciente
     Fecha date
     Comentarios varchar
     status varchar (1)
