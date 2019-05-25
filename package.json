@@ -1,0 +1,26 @@
+{
+  "name": "proyectodiplomado",
+  "version": "1.0.0",
+  "description": "Proyecto Final, Diplomado desarrollo web",
+  "main": "index.js",
+  "scripts": {
+    "test": "Inicia proyectoDiplomado"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roberto995/ProyectoDiplomado.git"
+  },
+  "keywords": [
+    "Diplomado"
+  ],
+  "author": "Roberto Abad Ramírez Nieves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roberto995/ProyectoDiplomado/issues"
+  },
+  "homepage": "https://github.com/roberto995/ProyectoDiplomado#readme"
+}
