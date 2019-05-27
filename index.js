@@ -17,7 +17,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'staticFiles')));
 
 app.get('/',function(req, res){
-	res.render('index');
+
+	res.render('prueba',{
+		title: 'costumers'
+	});
 });
  
 app.listen(3000, function(){
