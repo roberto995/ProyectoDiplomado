@@ -1,8 +1,19 @@
+<!-- INCLUDES -->
+<link rel="stylesheet" href="../css/estilos.css">
+<script src="../js/examenesMedicos.js"></script>
 
 
-<div class="block">
-	<h3>DATOS DEL PACIENTE<h3>
-	<input type="text" name="nombre" placeholder="Nombre . . .">
-	<input type="text" name="examen" placeholder="Examen . . .">
-	<input type="submit" name="submit" value="SOLICITAR EXAMEN">
+
+<div class="back">
+	<div class="block">
+		<p style="display: inline;">DATOS DE NUEVO EXAMEN</p>
+	    <p id="folioExamen" style="display: inline;">12098213</p><br><br>    		
+	    <label for="nombrePaciente">Nombre del paciente:</label><br>
+	    <input class="blockinput" type="text" name="nombre" placeholder="Comienza a escribir para autocompletar" id="nombrePaciente"><br><br>
+		<datalist id="pacientes_list"></datalist>
+
+	    <label for="examenSolicitado">Examen solicitado:</label><br>
+	    <input class="blockinput" type="text" name="examen" placeholder="Tipo de examen solicitado" id="examenSolicitado"><br><br><br>
+	    <input type="button" name="submit" value="SOLICITAR EXAMEN" class="btnSolicitar" onclick="solicitarExamen()"><br><br>    		
+	</div>
 </div>

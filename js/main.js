@@ -37,3 +37,8 @@ function login(){
 	}	
 
 }
+
+function examenesMedicos(){	
+	contenedor = document.getElementById('contenedor');	
+ 	contenedor.innerHTML = "<iframe class='frameContent' src='examenesMedicos.html' scrolling='no'></iframe>";
+}
