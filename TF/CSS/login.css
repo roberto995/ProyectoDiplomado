@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;   
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+@font-face{
+    font-family: Roboto;
+    src: url(../Fuentes/Roboto-Thin.ttf);
+}
+
+body{
+    background-color: #333E50;
+    background-image: url("https://www.ox.ac.uk/sites/files/oxford/field/field_image_main/hospital_0.jpg?w=50");
+    background-size: 100%;
+}
+
+.ini{
+    margin-top: 10%;
+    background-color: #EEF2F3;
+    width: 350px;
+    height: 300px;
+    border: none;
+    border-radius: 2%;
+}
+
+.d1{
+    color: #4B84AF;
+}
+
+.uaq{
+    font-size: 24px;
+}
+
+.inst{
+    color: black;
+}
+
+.nombre{
+    margin-top: 10%;
+    text-indent: 5%;
+    border: none;
+    height: 30px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.password{
+    text-indent: 5%;
+    border: none;
+    height: 30px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.btnIngresar{
+    border: none;
+    height: 30px;
+    width: 130px;
+    background-color: #CD5070;
+    color: white;
+}
