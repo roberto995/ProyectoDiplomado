@@ -4,6 +4,7 @@ var path = require('path');
 var mysql = require('mysql');
 const session = require('express-session');
 
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
