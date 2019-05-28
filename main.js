@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var mysql = require('mysql');
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -28,7 +29,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'staticFiles')));
 
 app.get('/',function(req, res){
-
 	res.render('index.ejs',{
 		title: 'costumers'
 	});
