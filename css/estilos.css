@@ -36,6 +36,12 @@ nav{
 	background: #256D9E;
 	float: right;
 }
+
+.imagenes2{
+	margin-top: 15px;
+	margin-left: 35px;
+}
+
 .d3{
 	position: relative;
 	width: 50px;
@@ -94,48 +100,29 @@ li a:hover:not(.active) {
     color: white;
 }
 
-h1{
-	margin-left: 4%;
-}
-section{
-	color:black;
-    width: 1065px;
-    margin-left: 300px;
-    height: calc(100% - 30px);
-	background: #E3E7E8;
+.titulo{
+	top: 62px;
+	left: 350px;
 	position: fixed;
-	top: 60px;
-	background-image: url("../Pictures/botiquin.png");
-	background-repeat: no-repeat; 
-	background-position-x: 1%;
-	background-size: 25px 30px;
-	overflow:auto;
 }
+
+body{
+	background: #E3E7E8;
+}
+
+
 .imagenes{
-	position: static;
-	padding: 1px 10px 1px 1px;
+	margin-top: 60px;
 	float: right;
-}
-.imagenes2{
-	position: static;
-	padding: 15px 40px 1px 1px;
-	float: right;
-	
-}
-.izq{
-	color:#838C95;
-	position: absolute;
-	margin-top: 9px;
-	margin-left: 88%;
 }
 
 .contenedor{
-	height: 515px;
 	background: white;
-	width: 1020px;
-	margin:15px;
+	margin: 15px;
 	top: 80px;
 	padding: 10px;
+	width: 75%;
+	height: 100%;
 	position: fixed;
 	overflow:auto;
 	left: 300px;
@@ -158,10 +145,6 @@ section{
 	grid-template-columns: auto;
 	word-break: break-all;
 	word-wrap: break-word;
-}
-
-.idp{
-	visibility: hidden;
 }
 
 .ired{
@@ -191,10 +174,11 @@ section{
 	visibility: hidden;
 	top: 280px;
 	left: 320px;
-	width: 1010px;
+	width: 74%;
 	position: fixed;
 	padding: 10px;
 }
+
 .grid-item2 {
 	background-color: #F8F9FB;
 	font-size: 12px;
@@ -209,10 +193,11 @@ section{
 	padding: 10px;
 	top: 410px;
 	left: 320px;
-	width: 1010px;
+	width: 74%;
 	position: fixed;
 	visibility: hidden;
 }
+
 .grid-item3 {
 	background-color: #F8F9FB;
 	padding: 5px;
@@ -247,4 +232,10 @@ section{
 	grid-template-columns: auto;
 	word-break: break-all;
 	word-wrap: break-word;
+}
+
+.comentario{
+	padding: 5px;
+	border: none;
+	float: left;
 }
