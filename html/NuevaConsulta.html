@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../CSS/NuevaConsulta.css">
+		<script src="../JS/NuevaConsulta.js"></script>
+		<title></title>
+	</head>
+	<body>
+
+<div class="div1">
+    <p class="clear">DATOS DE CONSULTA</p>
+    Nombre del paciente
+    <input class="clear" type="text" id="nombre" name="nombre" placeholder="Nombre">
+    <p class="pderecha">Fecha y hora de la consulta</p>
+    <p class="pizq">Telefono de contacto</p>
+    <input class="fechour" type="date" id="fecha" name="fecha" placeholder="Ingresa la fecha">
+    <input class="fechour" type="time" id="hora" name="hora" placeholder="Ingresa la hora">
+    <input class="espacio" type="text" id="numero" name="numero" placeholder="XX-XX-XX-XX-XX">
+    <p class="pderecha">Consultorio</p>
+    <p class="pizq">Estudios Solicitados</p>
+    <select class="espacio2" id="consultorio" name="consultorio" >
+    <option value="default">Agregar un consultorio</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+    <input class="espacio2" type="text" id="SolEsudios" name="SolEsudios" placeholder="Escribir estudio si es que se un solicito">
+        <br>
+        <br>
+    <button class="button" onclick="submt()">AGENDAR CONSULTA</button>
+   <br>
+   <br>
+   <br>
+       
+</div>
+
+
+
+	</body>
+</html>

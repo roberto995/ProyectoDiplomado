@@ -1,0 +1,58 @@
+.espacio{
+    width: calc((100% - 1%)/2);
+      height: calc((100% - 5%)/8);
+}
+.espacio2{
+    width: calc((100% - 5%)/2);
+      height: calc((100% - 5%)/8);
+}
+.fechour{
+    width: calc((100% - 10%)/4);
+     height: calc((100% - 5%)/8); 
+}
+.clear{
+    width: 99%;
+    float: left;
+}
+input{
+    border-radius: 5px; 
+}
+.div1{
+    padding: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 55%;
+    height:20%;
+    background-color: #eaeaea;
+}
+.div2{
+    position: absolute;
+    width: 35%;
+    height: 20%;
+ 
+}
+
+.pderecha{
+    left: 0%;
+    width: 50%;
+     height: calc((100% - 30%)/8);
+}
+.pizq{
+    left: 50%;
+    width: 50%;
+     height: calc((100% - 30%)/8);    
+}
+.button{
+    padding: .5%;
+    position: relative;
+    left: 70%;
+    border-radius: 5px;
+    width: 25%;
+    height: calc((100% - 30%)/8);
+    color: white;
+    font-family: Calibri;
+    font-size: 100%;
+    border-color: rgba(255, 0, 0, 0.726)494;
+    background:rgba(255, 0, 0, 0.726);
+}
