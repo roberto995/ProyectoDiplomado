@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
     <center>
         <div class="ini">
         <div class="d1">
-                <h2 class="uaq"> <img src="nuevo.png" style="width:15px;height:15px">iDoctor</h2>
+                <h2 class="uaq"> <img src="Pictures/nuevo.png" style="width:15px;height:15px">iDoctor</h2>
                 <p class="inst">Para utilizar el sistema utiliza tus datos de usuario para iniciar sesión, si tienes problemas contacta a soporte</p>
         </div >
         <input type="text" class="nombre" name="nombre" placeholder="Usuario"><br><br>
@@ -24,15 +24,15 @@
     </form>
  
     <?php
-	if (isset($_GET['Ingresar'])) {
+    if (isset($_GET['Ingresar'])) {
         $nombre = $_GET['nombre'];
         $password = $_GET['password'];
         $_SESSION['u'] = $nombre;
  
-		$conexion = new mysqli('localhost','root','','tfidoctor');
+        $conexion = new mysqli('localhost','root','','tfidoctor');
 
-		$busqueda = "SELECT * FROM doctores 
-					WHERE usua_d = '$nombre' and pass = '$password'";
+        $busqueda = "SELECT * FROM doctores 
+                    WHERE usua_d = '$nombre' and pass = '$password'";
         $resultado = mysqli_query($conexion, $busqueda);
 
         $filas = mysqli_num_rows($resultado);
@@ -48,12 +48,12 @@
         }
         mysqli_free_result($resultado);
         mysqli_close($conexion);
-		?>
-		
+        ?>
+        
         <?php
          
-	    }
-		?>
+        }
+        ?>
 
 </body>
 </html>

@@ -47,7 +47,21 @@
     <img src="../Pictures/menu.png"/>
     </div> 
 
-    <div class="contenedor" id="contenedor"></div>
+    <div class="contenedor" id="contenedor">
+        <div style="text-align: center;">
+
+            <h1>Miembros del equipo:</h1>
+            <br>
+            <ol>
+                <li><h1>Alguien</h1></li>
+                <li><h1>Alguien</h1></li>
+                <li><h1>Alguien</h1></li>
+                <li><h1>Alguien</h1></li>
+            </ol>
+        </div>
+        
+
+    </div>
     <div class="grid-container2" id="grid-container2"></div>
     <div class="grid-container3" id="grid-container3"></div>
 

@@ -1,5 +1,3 @@
-var pacientesLista=[];
-
 function examenes(){
 	var doctor = document.getElementById("doctor").value;
     document.getElementById('titulo').innerHTML="Mis Examenes";

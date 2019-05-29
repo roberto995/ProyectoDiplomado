@@ -15,8 +15,7 @@ function consultas(){
 	paciente.send();
 	paciente.onreadystatechange = function(){
 		if (paciente.status == 200 && paciente.readyState == 4) {
-			pac = JSON.parse(paciente.responseText);
-            console.log(pac);
+			pac = JSON.parse(paciente.responseText);            
 			 for(var i = 0; i < pac.length; i++){
 			 contenedor = document.getElementById('contenedor');	
                  var array_fecha= pac[i].Hora.split(":");
@@ -24,9 +23,6 @@ function consultas(){
                  var dhora=parseInt(horaCons-date.getHours());
                  var fechaAc=date.getFullYear()+"/"+date.getMonth()+"/"+date.getDay();
                  var verhisto="";
-                 console.log(fechaAc);
-                 console.log(dhora);
-                 console.log(date.getHours());
                  
 			 contenedor.innerHTML += "<div class='ficha'><center>" +
 			 "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKPBeQ3oqDHkrWRmCqkb16rrv1ifyhlvjW_l9_pN58vlmSY4b3' width='100' heigth='200'><br>"+"<button class='pointsDetail'></button>"+
@@ -86,7 +82,8 @@ function nuevaCons(){
     nconsl.innerHTML+= "<div class='div1'>"+
     "<p class='clear'>DATOS DE CONSULTA</p>"+
     'Nombre del paciente'+
-    "<input class='clear' type='text' id='nombre' list='pacientes' name='nombre' placeholder='Nombre'>"+
+    "<input class='clear' type='text' id='nombre' list='pacientesLista' name='nombre' placeholder='Nombre'>"+
+    "<datalist id='pacientesLista'></datalist>"+
     "<p class='pderecha'>Fecha y hora de la consulta</p>"+
     "<p class='pizq'>Telefono de contacto</p>"+
     "<input class='fechour' type='date' id='fecha' name='fecha' placeholder='Ingresa la fecha'>"+
@@ -114,6 +111,7 @@ function nuevaCons(){
    "<br>"+
    "<br>"+
    "<br>"+"</div>";
+   autocomplete();
 		
 }
 
@@ -155,8 +153,7 @@ function histo_medico(idp){
 	pacienteHM.send();
 	pacienteHM.onreadystatechange = function(){
 		if (pacienteHM.status == 200 && pacienteHM.readyState == 4) {
-			pacHM = JSON.parse(pacienteHM.responseText);
-			console.log(pacHM);
+			pacHM = JSON.parse(pacienteHM.responseText);			
 			 for(var k = 0; k < pacHM.length; k++){
 				 if(idp == pacHM[k].id_p){
 					contenedo = document.getElementById('grid-container2');
@@ -175,8 +172,7 @@ function histo_examen(ide){
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
-			pacEM = JSON.parse(pacienteEM.responseText);
-			console.log(pacEM);
+			pacEM = JSON.parse(pacienteEM.responseText);			
 			 for(var m = 0; m < pacEM.length; m++){
 				 if(ide == pacEM[m].Id_P){
 					
@@ -220,9 +216,37 @@ function insertar(){
 			misDatos.fecha_actual + " | " + misDatos.mensaje + "</div><br>";
 		}
 	}
-    console.log(mensaje);
-    console.log(persona);
-    
     var mensaje = document.getElementById("mensaje").value="";
     
+}
+
+function autocomplete(){
+	var doctor = document.getElementById("doctor").value;	
+	listaPacientesAjax = new XMLHttpRequest();
+	listaPacientesAjax.open('GET','../PHP/autocompletar.php',true);
+	listaPacientesAjax.send();
+	listaPacientesAjax.onreadystatechange = function(){
+		if (listaPacientesAjax.status == 200 && listaPacientesAjax.readyState == 4) {
+			var lista = JSON.parse(listaPacientesAjax.responseText);
+			var options='';					
+			 for(var j = 0; j < lista.length; j++){			 	
+				 if (lista[j].doctor == doctor) {
+				 	options += '<option value="'+lista[j].Nom_P+'" />';
+				 }
+			}	
+			document.getElementById('pacientesLista').innerHTML = options;		
+		}
+
+	} 	
+}
+
+function validateDataList() {
+    var options = document.getElementById("pacientesLista").options;
+    var result = false;
+    for (var i = 0; i < options.length; i++) {
+        if(document.getElementById("nombre").value == options[i].value) {
+        result = true;
+      }
+    }    
+    return result;
 }
