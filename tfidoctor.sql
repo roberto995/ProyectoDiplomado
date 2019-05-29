@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2019 a las 05:15:31
+-- Tiempo de generación: 29-05-2019 a las 18:32:50
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -23,39 +23,20 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `comentariosexamenes`
 --
 
 CREATE TABLE `comentariosexamenes` (
-  `id` int(11) NOT NULL,
+  `id` int(6) NOT NULL,
   `folio` int(11) NOT NULL,
   `comentario` varchar(100) NOT NULL,
-  `fecha` varchar(10) DEFAULT NULL
+  `fecha` varchar(10) DEFAULT NULL,
+  `doctor` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
---
--- Indices de la tabla `comentariosexamenes`
---
-ALTER TABLE `comentariosexamenes`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `comentIndex` (`id`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `comentariosexamenes`
---
-ALTER TABLE `comentariosexamenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-COMMIT;
-
-
-
-
-
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `consultas`
@@ -68,15 +49,16 @@ CREATE TABLE `consultas` (
   `hora` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `telefono` int(120) NOT NULL,
   `consultorio` int(10) NOT NULL,
-  `estudios` varchar(80) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL
+  `estudios` varchar(80) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `doctor` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `consultas`
 --
 
-INSERT INTO `consultas` (`id_con`, `nombre`, `fecha`, `hora`, `telefono`, `consultorio`, `estudios`) VALUES
-(1, 'Javier', '2019-05-23', '20:34', 1231231231, 8, 'Ninguno');
+INSERT INTO `consultas` (`id_con`, `nombre`, `fecha`, `hora`, `telefono`, `consultorio`, `estudios`, `doctor`) VALUES
+(2, 'Javier', '2019-05-30', '09:35', 2147483647, 9, 'Ninguno', 'jhernandez');
 
 -- --------------------------------------------------------
 
@@ -112,17 +94,18 @@ CREATE TABLE `examenes_m` (
   `Nom_P` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha_e` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Comentarios_e` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
-  `status` varchar(10) COLLATE utf8_spanish_ci NOT NULL
+  `status` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `doctor` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `examenes_m`
 --
 
-INSERT INTO `examenes_m` (`Id_E`, `Id_P`, `Nom_E`, `Nom_P`, `Fecha_e`, `Comentarios_e`, `status`) VALUES
-(1, 1, 'colonoscopia', 'Andres', '22/03/2019', 'Estudio Realizado', 'Entregado'),
-(2, 2, 'Diabetes', 'Ernesto', '19/05/2019', 'Se muestra con normalidad', 'Entregado'),
-(3, 1, 'Acido Urico', 'Andres', '15/04/2019', 'Controlar el comer carnes rojas', 'Pendiente');
+INSERT INTO `examenes_m` (`Id_E`, `Id_P`, `Nom_E`, `Nom_P`, `Fecha_e`, `Comentarios_e`, `status`, `doctor`) VALUES
+(1, 1, 'colonoscopia', 'Andres', '22/03/2019', 'Estudio Realizado', 'Entregado', 'jhernandez'),
+(2, 2, 'Diabetes', 'Ernesto', '19/05/2019', 'Se muestra con normalidad', 'Entregado', 'azarraga'),
+(3, 1, 'Acido Urico', 'Andres', '15/04/2019', 'Controlar el comer carnes rojas', 'Pendiente', 'jhernandez');
 
 -- --------------------------------------------------------
 
@@ -134,19 +117,19 @@ CREATE TABLE `historial` (
   `Id_His` int(6) NOT NULL,
   `Id_P` int(6) NOT NULL,
   `Fecha` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `Comentarios` varchar(80) COLLATE utf8_spanish_ci NOT NULL
+  `Comentarios` varchar(80) COLLATE utf8_spanish_ci NOT NULL,
+  `doctor` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `historial`
 --
 
-INSERT INTO `historial` (`Id_His`, `Id_P`, `Fecha`, `Comentarios`) VALUES
-(1, 1, '07/05/2019', 'Se realizo un estudio de sangre los resultados fueron positivos'),
-(2, 2, '19/06/2018', 'Sigue en tratamiento con medicamento'),
-(3, 1, '30/05/2019', 'Se encuentra con dolor abdominal necesita reposo'),
-(7, 2, '2019-05-29', 'no mms'),
-(8, 2, '2019-05-29', 'ya casi');
+INSERT INTO `historial` (`Id_His`, `Id_P`, `Fecha`, `Comentarios`, `doctor`) VALUES
+(1, 1, '07/05/2019', 'Se realizo un estudio de sangre los resultados fueron positivos', 'jhernandez'),
+(2, 2, '19/06/2018', 'Sigue en tratamiento con medicamento', 'azarraga'),
+(7, 2, '2019-05-29', 'Aun sigue en tratamiento', 'azarraga'),
+(8, 3, '2019-05-29', 'Padece de un desorden alimenticio', 'jhernandez');
 
 -- --------------------------------------------------------
 
@@ -168,20 +151,28 @@ CREATE TABLE `pacientes` (
   `Nom_E` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Diagnostico` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha` date NOT NULL,
-  `Hora` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `Hora` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `doctor` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `pacientes`
 --
 
-INSERT INTO `pacientes` (`Id_P`, `Nom_P`, `Ape_P`, `Edad`, `Domicilio`, `Telefono`, `Correo`, `T_Sangre`, `Alergia`, `Habi_con`, `Nom_E`, `Diagnostico`, `Fecha`, `Hora`) VALUES
-(1, 'Andres', 'Vazquez', 33, 'Guanajuato', 2147483106, 'andres@itotal.com', 'O', 'Ninguna', 1, 'Colonoscopia', 'Asma', '2019-05-06', '10:00'),
-(2, 'Ernesto', 'Mujia', 23, 'Hidalgo', 2147483119, 'ernesto.alonso@itotal.com', 'ONH', 'Perros', 3, 'ETS', 'Anemia', '2019-05-27', '12:00');
+INSERT INTO `pacientes` (`Id_P`, `Nom_P`, `Ape_P`, `Edad`, `Domicilio`, `Telefono`, `Correo`, `T_Sangre`, `Alergia`, `Habi_con`, `Nom_E`, `Diagnostico`, `Fecha`, `Hora`, `doctor`) VALUES
+(1, 'Andres', 'Vazquez', 33, 'Guanajuato', 2147483106, 'andres@itotal.com', 'O', 'Ninguna', 1, 'Colonoscopia', 'Asma', '2019-05-06', '10:00', 'jhernandez'),
+(2, 'Ernesto', 'Mujia', 23, 'Hidalgo', 2147483119, 'ernesto.alonso@itotal.com', 'ONH', 'Perros', 3, 'ETS', 'Anemia', '2019-05-27', '12:00', 'azarraga'),
+(3, 'Pedro', 'Herrera', 23, 'San Pablo', 2147483647, 'pedro@hotmail.com', 'HO+', 'Ninguna', 10, 'Hepatitis', 'Desgaste de energia', '2019-04-19', '14:55', 'jhernandez');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentariosexamenes`
+--
+ALTER TABLE `comentariosexamenes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `consultas`
@@ -218,10 +209,16 @@ ALTER TABLE `pacientes`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentariosexamenes`
+--
+ALTER TABLE `comentariosexamenes`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  MODIFY `id_con` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_con` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `doctores`
@@ -239,13 +236,13 @@ ALTER TABLE `examenes_m`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `Id_His` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id_His` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `Id_P` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_P` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
