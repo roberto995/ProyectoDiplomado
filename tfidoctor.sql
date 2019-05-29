@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2019 a las 18:32:50
+-- Tiempo de generación: 30-05-2019 a las 00:23:56
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -105,7 +105,11 @@ CREATE TABLE `examenes_m` (
 INSERT INTO `examenes_m` (`Id_E`, `Id_P`, `Nom_E`, `Nom_P`, `Fecha_e`, `Comentarios_e`, `status`, `doctor`) VALUES
 (1, 1, 'colonoscopia', 'Andres', '22/03/2019', 'Estudio Realizado', 'Entregado', 'jhernandez'),
 (2, 2, 'Diabetes', 'Ernesto', '19/05/2019', 'Se muestra con normalidad', 'Entregado', 'azarraga'),
-(3, 1, 'Acido Urico', 'Andres', '15/04/2019', 'Controlar el comer carnes rojas', 'Pendiente', 'jhernandez');
+(3, 1, 'Acido Urico', 'Andres', '15/04/2019', 'Controlar el comer carnes rojas', 'Pendiente', 'jhernandez'),
+(4, 4, 'Osteoporisis', 'Karol', '2019/03/12', 'Se encuetra muy grave', 'Entregado', 'jhernandez'),
+(5, 5, 'Osteoporisis', 'Isai', '2019/03/21', 'Bajo control', 'Entregado', 'pguerrero'),
+(6, 6, 'Osteoporisis', 'Norma', '2019/04/12', 'Se espera mas examenes', 'Entregado', 'azarraga'),
+(7, 7, 'Osteoporisis', 'Ricardo', '2019/05/12', 'Espera de resultados', 'Pendiente', 'pguerrero');
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,11 @@ INSERT INTO `historial` (`Id_His`, `Id_P`, `Fecha`, `Comentarios`, `doctor`) VAL
 (1, 1, '07/05/2019', 'Se realizo un estudio de sangre los resultados fueron positivos', 'jhernandez'),
 (2, 2, '19/06/2018', 'Sigue en tratamiento con medicamento', 'azarraga'),
 (7, 2, '2019-05-29', 'Aun sigue en tratamiento', 'azarraga'),
-(8, 3, '2019-05-29', 'Padece de un desorden alimenticio', 'jhernandez');
+(8, 3, '2019-05-29', 'Padece de un desorden alimenticio', 'jhernandez'),
+(14, 4, '2019/05/29', 'No se permite comer carbohidratos', 'jhernandez'),
+(15, 5, '2019/05/25', 'Dolor en la cabeza', 'pguerrero'),
+(16, 6, '2019/05/22', 'Dolores en la parte de espalda', 'azarraga'),
+(17, 7, '2019/05/25', 'No se permite comer carne roja', 'pguerrero');
 
 -- --------------------------------------------------------
 
@@ -162,7 +170,11 @@ CREATE TABLE `pacientes` (
 INSERT INTO `pacientes` (`Id_P`, `Nom_P`, `Ape_P`, `Edad`, `Domicilio`, `Telefono`, `Correo`, `T_Sangre`, `Alergia`, `Habi_con`, `Nom_E`, `Diagnostico`, `Fecha`, `Hora`, `doctor`) VALUES
 (1, 'Andres', 'Vazquez', 33, 'Guanajuato', 2147483106, 'andres@itotal.com', 'O', 'Ninguna', 1, 'Colonoscopia', 'Asma', '2019-05-06', '10:00', 'jhernandez'),
 (2, 'Ernesto', 'Mujia', 23, 'Hidalgo', 2147483119, 'ernesto.alonso@itotal.com', 'ONH', 'Perros', 3, 'ETS', 'Anemia', '2019-05-27', '12:00', 'azarraga'),
-(3, 'Pedro', 'Herrera', 23, 'San Pablo', 2147483647, 'pedro@hotmail.com', 'HO+', 'Ninguna', 10, 'Hepatitis', 'Desgaste de energia', '2019-04-19', '14:55', 'jhernandez');
+(3, 'Pedro', 'Herrera', 23, 'San Pablo', 2147483647, 'pedro@hotmail.com', 'HO+', 'Ninguna', 10, 'Hepatitis', 'Desgaste de energia', '2019-04-19', '14:55', 'jhernandez'),
+(4, 'Karol', 'Sevilla', 18, 'Corregidora', 121314151, 'karol@gmail.com', 'O-', 'Perros', 9, 'Ninguno', 'Se encuentra con dolor de estomago', '2019-05-30', '15:35', 'jhernandez'),
+(5, 'Isai', 'Quintanar', 24, 'Hidalgo', 1213222151, 'cano19@gmail.com', 'O+', 'Ninguno', 8, 'Ninguno', 'padece de dolor de cabeza', '2019-03-28', '16:35', 'pguerrero'),
+(6, 'Norma', 'Guerrero', 19, 'Juriquilla', 121314151, 'nguerrero@gmail.com', 'OH', 'Polvo', 7, 'Ninguno', 'Se encuentra con dolor de estomago', '2019-05-30', '15:35', 'azarraga'),
+(7, 'Ricardo', 'Herrera', 35, 'San Miguel', 121314112, 'herreraT@gmail.com', 'O', 'Ninguna', 5, 'Ninguno', 'Se encuentra con dolor en la parte inferior del pi', '2019-05-10', '19:35', 'pguerrero');
 
 --
 -- Índices para tablas volcadas
@@ -230,19 +242,19 @@ ALTER TABLE `doctores`
 -- AUTO_INCREMENT de la tabla `examenes_m`
 --
 ALTER TABLE `examenes_m`
-  MODIFY `Id_E` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id_E` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `Id_His` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id_His` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `Id_P` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id_P` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
