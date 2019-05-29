@@ -6,4 +6,4 @@ while ($row = mysqli_fetch_assoc($resultado)){
         $values[]= $row;
 }
 echo json_encode(array_values($values));
-?>
+?> 
