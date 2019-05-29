@@ -23,6 +23,39 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `comentariosexamenes`
+--
+
+CREATE TABLE `comentariosexamenes` (
+  `id` int(11) NOT NULL,
+  `folio` int(11) NOT NULL,
+  `comentario` varchar(100) NOT NULL,
+  `fecha` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+--
+-- Indices de la tabla `comentariosexamenes`
+--
+ALTER TABLE `comentariosexamenes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `comentIndex` (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `comentariosexamenes`
+--
+ALTER TABLE `comentariosexamenes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+
+
+
+
 
 --
 -- Estructura de tabla para la tabla `consultas`
