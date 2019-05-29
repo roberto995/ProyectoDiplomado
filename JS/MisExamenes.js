@@ -133,7 +133,6 @@ function examenDetalles(id){
 			histo_examen(id);
 		}
 	}
-
 }
 
 function addComentario(id){
