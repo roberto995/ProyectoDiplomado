@@ -60,7 +60,14 @@ function solicitarExamen(){
 }
 function nuevoExamen(){	
 	contenedor = document.getElementById('contenedor');	
- 	contenedor.innerHTML = "<iframe class='frameContent' src='../html/nuevoExamen.html' scrolling='no'></iframe>"; 	
+ 	contenedor.innerHTML = "<div class='block'>"+
+ 		"<p style='display: inline;'>DATOS DE NUEVO EXAMEN</p>"+
+	    "<p id='folioExamen' style='display: inline;'>12098213</p><br><br>"+    		
+	    "<label for='nombrePaciente'>Nombre del paciente:</label><br>"+
+	    "<input class='blockinput' type='text' name='nombre' placeholder='Comienza a escribir para autocompletar' id='nombre'><br><br>"+
+	    "<label for='examenSolicitado'>Examen solicitado:</label><br>"+
+	    "<input class='blockinput' type='text' name='examen' placeholder='Tipo de examen solicitado' id='examen'><br><br><br>"+
+	    "<input type='button' name='submit' value='SOLICITAR EXAMEN' class='btnSolicitar' onclick='solicitarExamen()''><br><br></div>"; 	
 }
 
 function examenDetalles(id){
