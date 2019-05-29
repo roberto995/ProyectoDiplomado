@@ -1,3 +1,5 @@
+var pacientesLista=[];
+
 function examenes(){
 	var doctor = document.getElementById("doctor").value;
     document.getElementById('titulo').innerHTML="Mis Examenes";
@@ -43,20 +45,33 @@ function examenes(){
 }
 
 function solicitarExamen(){	
-    var nombre = document.getElementById("nombre").value;
-	var examen = document.getElementById("examen").value;
-	var doctor = document.getElementById("doctor").value;  
-    var d=new Date(),m=new Date(),y=new Date();
-    var fecha = d.getDate()+'/'+m.getMonth()+'/'+y.getFullYear();    
-    busqueda = new XMLHttpRequest();    
-    busqueda.open('POST','../PHP/nuevoExamen.php?nombre='+nombre+"&examen="+examen+"&fecha="+fecha+'&doctor='+doctor);
-    busqueda.send();
-    busqueda.onreadystatechange = function(){
-        if (busqueda.status == 200 && busqueda.readyState == 4) {
-            alert("Tu examen fue solicitado!"); 
-            parent.examenes();            
+
+	if (validateDataList()) 
+	{
+		var nombre = document.getElementById("nombre").value;
+		var examen = document.getElementById("examen").value;
+		var doctor = document.getElementById("doctor").value;  
+	    var d=new Date(),m=new Date(),y=new Date();
+	    var fecha = d.getDate()+'/'+m.getMonth()+'/'+y.getFullYear();    
+	    busqueda = new XMLHttpRequest();    
+	    busqueda.open('POST','../PHP/nuevoExamen.php?nombre='+nombre+"&examen="+examen+"&fecha="+fecha+'&doctor='+doctor);
+	    busqueda.send();
+	    busqueda.onreadystatechange = function(){
+	        if (busqueda.status == 200 && busqueda.readyState == 4) {
+	            alert("Tu examen fue solicitado!"); 
+	            parent.examenes();            
+			}
 		}
 	}
+	else{		
+		alert('Selecciona el nombre del paciente de la lista');
+		document.getElementById('nombre').value = "";
+		document.getElementById("nombre").focus();
+	}
+
+
+
+    
 }
 function nuevoExamen(){	
 	contenedor = document.getElementById('contenedor');	
@@ -64,10 +79,12 @@ function nuevoExamen(){
  		"<p style='display: inline;'>DATOS DE NUEVO EXAMEN</p>"+
 	    "<p id='folioExamen' style='display: inline;'>12098213</p><br><br>"+    		
 	    "<label for='nombrePaciente'>Nombre del paciente:</label><br>"+
-	    "<input class='blockinput' type='text' name='nombre' placeholder='Comienza a escribir para autocompletar' id='nombre'><br><br>"+
+	    "<input class='blockinput' list='pacientesLista' type='text' name='nombre' placeholder='Comienza a escribir para autocompletar' id='nombre'><br><br>"+
+	    "<datalist id='pacientesLista'></datalist>"+
 	    "<label for='examenSolicitado'>Examen solicitado:</label><br>"+
 	    "<input class='blockinput' type='text' name='examen' placeholder='Tipo de examen solicitado' id='examen'><br><br><br>"+
 	    "<input type='button' name='submit' value='SOLICITAR EXAMEN' class='btnSolicitar' onclick='solicitarExamen()''><br><br></div>"; 	
+	    autocomplete();
 }
 
 function examenDetalles(id){
@@ -133,4 +150,36 @@ function addComentario(id){
 
 function pdf(){
 	alert("DESCARGA DE EXAMEN . . .");
+}
+
+
+function autocomplete(){
+	var doctor = document.getElementById("doctor").value;	
+	listaPacientesAjax = new XMLHttpRequest();
+	listaPacientesAjax.open('GET','../PHP/autocompletar.php',true);
+	listaPacientesAjax.send();
+	listaPacientesAjax.onreadystatechange = function(){
+		if (listaPacientesAjax.status == 200 && listaPacientesAjax.readyState == 4) {
+			var lista = JSON.parse(listaPacientesAjax.responseText);
+			var options='';					
+			 for(var j = 0; j < lista.length; j++){			 	
+				 if (lista[j].doctor == doctor) {
+				 	options += '<option value="'+lista[j].Nom_P+'" />';
+				 }
+			}	
+			document.getElementById('pacientesLista').innerHTML = options;		
+		}
+
+	} 	
+}
+
+function validateDataList() {
+    var options = document.getElementById("pacientesLista").options;
+    var result = false;
+    for (var i = 0; i < options.length; i++) {
+        if(document.getElementById("nombre").value == options[i].value) {
+        result = true;
+      }
+    }    
+    return result;
 }
