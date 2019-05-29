@@ -38,7 +38,7 @@
         $filas = mysqli_num_rows($resultado);
 
         if ($filas>0) {
-            header('Location: ../php/idoctor.php');
+            header('Location: ../PHP/idoctor.php');
         }else{
             ?>
             <script>
