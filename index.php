@@ -1,15 +1,15 @@
 <?php 
-	session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
         <meta charset="utf-8">
-<link rel="stylesheet" href="../CSS/login.css">
+<link rel="stylesheet" href="./CSS/login.css">
     <title>Iniciar Sesion</title>
 </head>
 <body>
-    <form action="../PHP/login.php" method="GET">
+    <form action="index.php" method="GET">
     <center>
         <div class="ini">
         <div class="d1">
@@ -24,21 +24,21 @@
     </form>
  
     <?php
-	if (isset($_GET['Ingresar'])) {
+    if (isset($_GET['Ingresar'])) {
         $nombre = $_GET['nombre'];
         $password = $_GET['password'];
         $_SESSION['u'] = $nombre;
  
-		$conexion = new mysqli('localhost','root','','tfidoctor');
+        $conexion = new mysqli('localhost','root','','tfidoctor');
 
-		$busqueda = "SELECT * FROM doctores 
-					WHERE usua_d = '$nombre' and pass = '$password'";
+        $busqueda = "SELECT * FROM doctores 
+                    WHERE usua_d = '$nombre' and pass = '$password'";
         $resultado = mysqli_query($conexion, $busqueda);
 
         $filas = mysqli_num_rows($resultado);
 
         if ($filas>0) {
-            header('Location: ../php/idoctor.php');
+            header('Location: ./PHP/idoctor.php');
         }else{
             ?>
             <script>
@@ -48,12 +48,12 @@
         }
         mysqli_free_result($resultado);
         mysqli_close($conexion);
-		?>
-		
+        ?>
+        
         <?php
          
-	    }
-		?>
+        }
+        ?>
 
 </body>
 </html>
