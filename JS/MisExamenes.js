@@ -120,8 +120,7 @@ function examenDetalles(id){
 }
 
 function addComentario(id){
-	var comentario = document.getElementById("comentario").value;
-	console.log(comentario);
+	var comentario = document.getElementById("comentario").value;	
     busqueda = new XMLHttpRequest();    
     busqueda.open('POST','../PHP/comentarExamen.php?comentario='+comentario+'&folio='+id);
     busqueda.send();
