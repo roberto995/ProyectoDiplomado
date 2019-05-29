@@ -18,6 +18,10 @@ nav{
     left: 0px;
     top: 0px;
 }
+
+.titulo{
+    font-size: 18px;
+}
  
 .d1{
     position: fixed;
