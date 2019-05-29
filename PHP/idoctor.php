@@ -53,7 +53,7 @@
 
     <?php
     if (isset($_GET['cerrar'])) {
-        header('Location: index.php');
+        header('Location: ../index.php');
         //session_destroy();
 	}
     ?>
