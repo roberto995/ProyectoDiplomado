@@ -104,6 +104,15 @@ li a:hover:not(.active) {
     color: white;
 }
  
+.perfil{
+    top: 5px;
+    left: 500px;
+    position: fixed;
+    text-align: center;
+    color: white;
+    
+}
+
 .titulo{
     top: 62px;
     left: 350px;
@@ -386,5 +395,14 @@ input{
     background-position: center;
     margin-top: -45px;
     border-radius: 0px;
+}
 
+.cerrar{
+    top: 10px;
+    position: fixed;
+    left: 1030px;
+    width: 120px;
+    height: 30px;
+    background-color: rgb(0, 183, 255);
+  border: none;
 }
