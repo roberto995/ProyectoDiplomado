@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +27,7 @@
 	if (isset($_GET['Ingresar'])) {
         $nombre = $_GET['nombre'];
         $password = $_GET['password'];
+        $_SESSION['u'] = $nombre;
  
 		$conexion = new mysqli('localhost','root','','tfidoctor');
 
@@ -34,7 +38,7 @@
         $filas = mysqli_num_rows($resultado);
 
         if ($filas>0) {
-            header('Location: ../html/idoctor.html');
+            header('Location: ../php/idoctor.php');
         }else{
             ?>
             <script>
