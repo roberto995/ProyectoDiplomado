@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>iDoctor</title>
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="../js/MisPacientes.js"></script>
-    <script src="../js/MisConsultas.js"></script>
+    <link rel="stylesheet" href="../CSS/estilos.css">
+    <script src="../JS/MisPacientes.js"></script>
+    <script src="../JS/MisConsultas.js"></script>
+    <script src="../JS/MisExamenes.js"></script>
 </head>
 <body> 
     <nav>
@@ -28,11 +29,11 @@
         <ul>
             <li onclick="pacientes()"><a href="#Mis pacientes">Mis pacientes</a></li>
             <li onclick="consultas()"><a href="#Mis consultas">Mis consultas</a></li>
-            <li><a href="#Examen Médicos">Examen Médicos</a></li>
+            <li onclick="examenes()"><a href="#Examen Médicos">Examen Médicos</a></li>
           </ul>
     </div>
 
-    <div class="titulo">TITULO DE SECCIÓN</div>
+    <div class="titulo" id="titulo"></div>
     <div class="imagenes">Vista
     <img src="../Pictures/list.png"/>
     <img src="../Pictures/menu.png"/>

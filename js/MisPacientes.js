@@ -1,4 +1,5 @@
 function pacientes(){
+	document.getElementById('titulo').innerHTML="Mis Pacientes";
 	document.getElementById('contenedor').innerHTML="";
 	document.getElementById('grid-container2').innerHTML="HISTORIAL CLÍNICO";
 	document.getElementById('grid-container3').innerHTML="EXAMENES MÉDICOS";
@@ -67,7 +68,7 @@ function histo_medico(idp){
 				 if(idp == pacHM[k].id_p){
 					contenedo = document.getElementById('grid-container2');
 					contenedo.innerHTML += "<div class='grid-item2 id='grid-item'>" + 
-					pacHM[k].fecha + " | " + pacHM[k].comentarios + "</div><br>";
+					pacHM[k].fecha + " | " + pacHM[k].comentarios + "</div>";
 				}
 			}
 		}
@@ -97,7 +98,6 @@ function histo_examen(ide){
 						default:
 							color= "statPendiente";
 							break;				
-
 					}
 					contenedor = document.getElementById('grid-container3');
 					contenedor.innerHTML += "<div class='grid-item3'>" + 
