@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8">
-<link rel="stylesheet" href="../CSS/login.css">
+<link rel="stylesheet" href="./CSS/login.css">
     <title>Iniciar Sesion</title>
 </head>
 <body>
