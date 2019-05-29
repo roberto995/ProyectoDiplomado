@@ -12,8 +12,7 @@ function pacientes(){
 	paciente.send();
 	paciente.onreadystatechange = function(){
 		if (paciente.status == 200 && paciente.readyState == 4) {
-			pac = JSON.parse(paciente.responseText);
-			console.log(pac);
+			pac = JSON.parse(paciente.responseText);			
 			 for(var i = 0; i < pac.length; i++){
 			 contenedor = document.getElementById('contenedor');	
 			 contenedor.innerHTML += "<div class='ficha'><center>" +
@@ -38,8 +37,7 @@ function histo(id){
 	pacienteH.send();
 	pacienteH.onreadystatechange = function(){
 		if (pacienteH.status == 200 && pacienteH.readyState == 4) {
-			pacH = JSON.parse(pacienteH.responseText);
-			console.log(pacH);
+			pacH = JSON.parse(pacienteH.responseText);			
 			 for(var j = 0; j < pacH.length; j++){
 				 if(id == pacH[j].id_p){
 			 contenedor = document.getElementById('contenedor');
@@ -65,8 +63,7 @@ function histo_medico(idp){
 	pacienteHM.send();
 	pacienteHM.onreadystatechange = function(){
 		if (pacienteHM.status == 200 && pacienteHM.readyState == 4) {
-			pacHM = JSON.parse(pacienteHM.responseText);
-			console.log(pacHM);
+			pacHM = JSON.parse(pacienteHM.responseText);			
 			 for(var k = 0; k < pacHM.length; k++){
 				 if(idp == pacHM[k].id_p){
 					contenedo = document.getElementById('grid-container2');
@@ -86,8 +83,7 @@ function histo_examen(ide){
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
-			pacEM = JSON.parse(pacienteEM.responseText);
-			console.log(pacEM);
+			pacEM = JSON.parse(pacienteEM.responseText);			
 			 for(var m = 0; m < pacEM.length; m++){
 				 if(ide == pacEM[m].Id_P){
 					

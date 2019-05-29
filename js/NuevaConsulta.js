@@ -14,7 +14,6 @@ function submt(){
             alert("tus datos han sido guardados"); 
 		}
 	}
-//    console.log(nombre)
     var nombre = document.getElementById("nombre").value="";
     var fecha = document.getElementById("fecha").value="";
     var hora = document.getElementById("hora").value="";
