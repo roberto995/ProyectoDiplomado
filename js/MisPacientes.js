@@ -5,9 +5,10 @@ function pacientes(){
 	document.getElementById('grid-container3').innerHTML="EXAMENES MÉDICOS";
 	document.getElementById('grid-container2').style.visibility = "hidden";
 	document.getElementById('grid-container3').style.visibility = "hidden";
+	var doctor = document.getElementById("doctor").value;
 	//AJAX,
 	paciente = new XMLHttpRequest();
-	paciente.open('GET','../PHP/pacientes.php',true);
+	paciente.open('GET','../PHP/pacientes.php?doctor='+doctor,true);
 	paciente.send();
 	paciente.onreadystatechange = function(){
 		if (paciente.status == 200 && paciente.readyState == 4) {
@@ -31,8 +32,9 @@ function histo(id){
 	document.getElementById('contenedor').innerHTML="";
 	document.getElementById('grid-container2').style.visibility = "visible";
 	document.getElementById('grid-container3').style.visibility = "visible";
+	var doctor = document.getElementById("doctor").value;
 	pacienteH = new XMLHttpRequest();
-	pacienteH.open('GET','../PHP/pacientesMD.php',true);
+	pacienteH.open('GET','../PHP/pacientesMD.php?doctor='+doctor,true);
 	pacienteH.send();
 	pacienteH.onreadystatechange = function(){
 		if (pacienteH.status == 200 && pacienteH.readyState == 4) {
@@ -57,8 +59,9 @@ function histo(id){
 }
 
 function histo_medico(idp){
+	var doctor = document.getElementById("doctor").value;
 	pacienteHM = new XMLHttpRequest();
-	pacienteHM.open('GET','../PHP/pacientesHM.php',true);
+	pacienteHM.open('GET','../PHP/pacientesHM.php?doctor='+doctor,true);
 	pacienteHM.send();
 	pacienteHM.onreadystatechange = function(){
 		if (pacienteHM.status == 200 && pacienteHM.readyState == 4) {
@@ -77,8 +80,9 @@ function histo_medico(idp){
 }
 
 function histo_examen(ide){
+	var doctor = document.getElementById("doctor").value;
 	pacienteEM = new XMLHttpRequest();
-	pacienteEM.open('GET','../PHP/pacientesEM.php',true);
+	pacienteEM.open('GET','../PHP/pacientesEM.php?doctor='+doctor,true);
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
