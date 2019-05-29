@@ -40,5 +40,6 @@ function login(){
 
 function examenesMedicos(){	
 	contenedor = document.getElementById('contenedor');	
- 	contenedor.innerHTML = "<iframe class='frameContent' src='examenesMedicos.html' scrolling='no'></iframe>";
+ 	// contenedor.innerHTML = "<iframe class='frameContent' src='nuevoExamen.html' scrolling='no'></iframe>";
+ 	contenedor.innerHTML = "<iframe class='frameContent' src='resultadosExamen.html' scrolling='no'></iframe>";
 }

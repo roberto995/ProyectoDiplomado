@@ -1,6 +1,6 @@
 <?php
 
-class sesioniDoctor{
+class dbConection{
 
 		private $host="localhost";
 		private $username="root";
