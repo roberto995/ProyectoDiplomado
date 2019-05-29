@@ -1,9 +1,9 @@
 <?php
 
 $conn = mysqli_connect('localhost','root','','tfidoctor');
+$doctor = $_GET['doctor'];
 
-
-$resultado = mysqli_query($conn,"SELECT id_p, fecha, comentarios FROM historial");
+$resultado = mysqli_query($conn,"SELECT id_p, fecha, comentarios FROM historial where doctor = '$doctor'");
 
 $data = array();
 
