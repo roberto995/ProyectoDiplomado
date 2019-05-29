@@ -34,7 +34,7 @@
         $filas = mysqli_num_rows($resultado);
 
         if ($filas>0) {
-            header('Location: ../html/MisPacientes.html');
+            header('Location: ../html/idoctor.html');
         }else{
             ?>
             <script>
