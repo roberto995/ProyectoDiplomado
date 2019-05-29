@@ -1,4 +1,5 @@
 function consultas(){
+	var doctor = document.getElementById("doctor").value;
 	document.getElementById('titulo').innerHTML="Mis Consultas";
 	document.getElementById('contenedor').innerHTML="";
 	document.getElementById('grid-container2').innerHTML="HISTORIAL CLÍNICO <br>"+
@@ -10,7 +11,7 @@ function consultas(){
     var date=new Date();
 	//AJAX,
 	paciente = new XMLHttpRequest();
-	paciente.open('GET','../PHP/pacientes.php',true);
+	paciente.open('GET','../PHP/pacientes.php?doctor='+doctor,true);
 	paciente.send();
 	paciente.onreadystatechange = function(){
 		if (paciente.status == 200 && paciente.readyState == 4) {
@@ -57,10 +58,11 @@ function submt(){
     var hora = document.getElementById("hora").value;
     var numero = document.getElementById("numero").value;
     var consultorio = document.getElementById("consultorio").value;
-    var estudios = document.getElementById("SolEsudios").value;
+	var estudios = document.getElementById("SolEsudios").value;
+	var doctor = document.getElementById("doctor").value;
 
     busqueda = new XMLHttpRequest();
-    busqueda.open('GET','../PHP/NuevaConsultaInsert.php?nombre='+nombre+'&fecha='+fecha+'&hora='+hora+'&numero='+numero+'&consultorio='+consultorio+'&estudios='+estudios);
+    busqueda.open('GET','../PHP/NuevaConsultaInsert.php?nombre='+nombre+'&fecha='+fecha+'&hora='+hora+'&numero='+numero+'&consultorio='+consultorio+'&estudios='+estudios+'&doctor='+doctor);
     busqueda.send();
     busqueda.onreadystatechange = function(){
         if (busqueda.status == 200 && busqueda.readyState == 4) {
@@ -116,11 +118,12 @@ function nuevaCons(){
 }
 
 function mDeta(id){
+	var doctor = document.getElementById("doctor").value;
 	document.getElementById('contenedor').innerHTML="";
 	document.getElementById('grid-container2').style.visibility = "visible";
 	document.getElementById('grid-container3').style.visibility = "visible";
 	pacienteH = new XMLHttpRequest();
-	pacienteH.open('GET','../PHP/pacientesMD.php',true);
+	pacienteH.open('GET','../PHP/pacientesMD.php?doctor='+doctor,true);
 	pacienteH.send();
 	pacienteH.onreadystatechange = function(){
 		if (pacienteH.status == 200 && pacienteH.readyState == 4) {
@@ -146,8 +149,9 @@ function mDeta(id){
 }
 
 function histo_medico(idp){
+	var doctor = document.getElementById("doctor").value;
 	pacienteHM = new XMLHttpRequest();
-	pacienteHM.open('GET','../PHP/pacientesHM.php',true);
+	pacienteHM.open('GET','../PHP/pacientesHM.php?doctor='+doctor,true);
 	pacienteHM.send();
 	pacienteHM.onreadystatechange = function(){
 		if (pacienteHM.status == 200 && pacienteHM.readyState == 4) {
@@ -165,8 +169,9 @@ function histo_medico(idp){
 }
 
 function histo_examen(ide){
+	var doctor = document.getElementById("doctor").value;
 	pacienteEM = new XMLHttpRequest();
-	pacienteEM.open('GET','../PHP/pacientesEM.php',true);
+	pacienteEM.open('GET','../PHP/pacientesEM.php?doctor='+doctor,true);
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
@@ -202,9 +207,9 @@ function insertar(){
    
     var mensaje = document.getElementById("mensaje").value;
     var persona = document.getElementById("persona").value;
-    
+    var doctor = document.getElementById("doctor").value;
     insertar = new XMLHttpRequest();
-    insertar.open('GET','../PHP/insertar.php?persona='+persona+'&mensaje='+mensaje);
+    insertar.open('GET','../PHP/insertar.php?persona='+persona+'&mensaje='+mensaje+'&doctor='+doctor);
     insertar.send();
     insertar.onreadystatechange = function(){
         if (insertar.status == 200 && insertar.readyState == 4) {
