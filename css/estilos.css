@@ -351,3 +351,36 @@ input{
     background-color: rgb(205,80,112);
     color: white;
 }
+
+.btnPDF{
+   border: none;
+   width: 100px;
+   float: right;
+   height: 100%;
+   background-color: rgb(205,80,112);
+    color: white;   
+}
+
+.comentarioTest{
+    width: calc(100% - 50px);
+    height: 40px;
+    float: left;
+    display: inline;
+    border-radius: 0px;
+}
+.inputComentario{
+    display: inline;
+    padding: 2px 2px 20px 2px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(53,152,219);
+    border:none;
+    background-image: url(https://image.flaticon.com/icons/svg/1034/1034160.svg);    
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    margin-top: -45px;
+    border-radius: 0px;
+
+}
