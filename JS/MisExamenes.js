@@ -1,10 +1,11 @@
 function examenes(){
+	var doctor = document.getElementById("doctor").value;
     document.getElementById('titulo').innerHTML="Mis Examenes";
     document.getElementById('grid-container2').style.visibility = "hidden";
     document.getElementById('grid-container3').style.visibility = "hidden";
     document.getElementById('contenedor').innerHTML="<div class='grid-container'>Examenes solicitados<br><button class='newExamen' onclick='nuevoExamen()'>Solicitar Nuevo Examen</button></div>";
 	pacienteEM = new XMLHttpRequest();
-	pacienteEM.open('GET','../PHP/pacientesEM.php',true);
+	pacienteEM.open('GET','../PHP/pacientesEM.php?doctor='+doctor,true);
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
@@ -36,8 +37,6 @@ function examenes(){
 						"<input type='button' id='bstatus' name='bstatus' class='bstatus "+ color + "' value="+pacEM[m].status+"'></div>";
 
 					}
-					
-				 
 			}
 		}
 	}
@@ -45,11 +44,12 @@ function examenes(){
 
 function solicitarExamen(){	
     var nombre = document.getElementById("nombre").value;
-    var examen = document.getElementById("examen").value;  
+	var examen = document.getElementById("examen").value;
+	var doctor = document.getElementById("doctor").value;  
     var d=new Date(),m=new Date(),y=new Date();
     var fecha = d.getDate()+'/'+m.getMonth()+'/'+y.getFullYear();    
     busqueda = new XMLHttpRequest();    
-    busqueda.open('POST','../PHP/nuevoExamen.php?nombre='+nombre+"&examen="+examen+"&fecha="+fecha);
+    busqueda.open('POST','../PHP/nuevoExamen.php?nombre='+nombre+"&examen="+examen+"&fecha="+fecha+'&doctor='+doctor);
     busqueda.send();
     busqueda.onreadystatechange = function(){
         if (busqueda.status == 200 && busqueda.readyState == 4) {
@@ -60,10 +60,11 @@ function solicitarExamen(){
 }
 function nuevoExamen(){	
 	contenedor = document.getElementById('contenedor');	
- 	contenedor.innerHTML = "<iframe class='frameContent' src='nuevoExamen.html' scrolling='no'></iframe>"; 	
+ 	contenedor.innerHTML = "<iframe class='frameContent' src='../html/nuevoExamen.html' scrolling='no'></iframe>"; 	
 }
 
-function examenDetalles(id){	
+function examenDetalles(id){
+	var doctor = document.getElementById("doctor").value;	
 	contenedor = document.getElementById('contenedor');	 	
  	contenedor.innerHTML = "<div class='block'><p style='display: inline;'>RESULTADOS</p><br>"+
 						"<input class='comentarioTest blockinput' type='text' placeholder='Agregar un comentario a los resultados del examen' id='comentario'><br><br>"+
@@ -88,7 +89,7 @@ function examenDetalles(id){
 	// contenedor.innerHTML += "<div class='grid-item3'> RESULTADOS EXAMEN: <input type='button' class='btnPDF' value='PDF' onclick='pdf()' href='../pdf/pdf.pdf' download></div>";		
 	contenedor.innerHTML += "<div class='grid-item3'> RESULTADOS EXAMEN: <a style='text-decoration: none; text-align: center;' class='btnPDF' href='../pdf/pdf.pdf' download>PDF</a> </div>";		
  	testDetailAjax = new XMLHttpRequest();
-	testDetailAjax.open('GET','../PHP/pacientesMD.php',true);
+	testDetailAjax.open('GET','../PHP/pacientesMD.php?doctor='+doctor,true);
 	testDetailAjax.send();
 	testDetailAjax.onreadystatechange = function(){
 		if (testDetailAjax.status == 200 && testDetailAjax.readyState == 4) {
