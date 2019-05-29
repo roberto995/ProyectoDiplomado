@@ -12,8 +12,12 @@
     <script src="../JS/MisExamenes.js"></script>
 </head>
 <body> 
-    <nav>
-            <div class="d1">
+    <nav><h2 class="perfil">Bienvenido Doctor: <?php echo $_SESSION['u'] ?></h2>
+        <input type="text" name="doctor" id="doctor" value='<?php echo $_SESSION['u'] ?>' style="visibility:hidden; position:fixed">
+        <form method="get" action="idoctor.php">
+        <input type="submit" value="Cerrar Sesión" name="cerrar" class="cerrar">
+        </form>   
+        <div class="d1">
                 <h2>iDoctor <h4>(v 0.1)</h4></h2>
             </div>
             <div class="d2">
@@ -23,7 +27,6 @@
                 </div>
             </div>
             <div class="d3">
-            <h2>este es el perfil de <?php echo $_SESSION['u'] ?></h2>
             </div>
             </nav> 
             <div class="d4">
@@ -47,6 +50,13 @@
     <div class="contenedor" id="contenedor"></div>
     <div class="grid-container2" id="grid-container2"></div>
     <div class="grid-container3" id="grid-container3"></div>
+
+    <?php
+    if (isset($_GET['cerrar'])) {
+        header('Location: ../php/login.php');
+        //session_destroy();
+	}
+    ?>
 
 </body>
 </html>
