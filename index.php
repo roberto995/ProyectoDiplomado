@@ -9,7 +9,7 @@
     <title>Iniciar Sesion</title>
 </head>
 <body>
-    <form action="../PHP/login.php" method="GET">
+    <form action="index.php" method="GET">
     <center>
         <div class="ini">
         <div class="d1">
@@ -38,7 +38,7 @@
         $filas = mysqli_num_rows($resultado);
 
         if ($filas>0) {
-            header('Location: ../PHP/idoctor.php');
+            header('Location: ./PHP/idoctor.php');
         }else{
             ?>
             <script>
