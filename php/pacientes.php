@@ -1,7 +1,9 @@
 <?php
 $conn = mysqli_connect('localhost','root','','tfidoctor');
 
-$resultado = mysqli_query($conn,"SELECT * FROM pacientes");
+$doctor = $_GET['doctor'];
+
+$resultado = mysqli_query($conn,"SELECT * FROM pacientes where doctor = '$doctor'");
 
 $data = array();
 
