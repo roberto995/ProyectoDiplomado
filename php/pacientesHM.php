@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','tfidoctor');
+$conn = mysqli_connect('localhost','id9756901_root','12345','id9756901_idoctor');
 $doctor = $_GET['doctor'];
 
 $resultado = mysqli_query($conn,"SELECT id_p, fecha, comentarios FROM historial where doctor = '$doctor'");

@@ -50,13 +50,15 @@
     <div class="contenedor" id="contenedor">
         <div style="text-align: center;">
 
+            <img src="../Pictures/escudo1.png">
+            <img src="../Pictures/escudo2.png">
             <h1>Miembros del equipo:</h1>
             <br>
             <ol>
-                <li><h1>Alguien</h1></li>
-                <li><h1>Alguien</h1></li>
-                <li><h1>Alguien</h1></li>
-                <li><h1>Alguien</h1></li>
+                <li><h1>Cruz Martín Camargo Barrios exp.246617</h1></li>
+                <li><h1>Luis Eduardo López Zetina 212320</h1></li>
+                <li><h1>javier hernández santos exp.246612</h1></li>
+                <li><h1>Roberto Abad Ramírez Nieves exp.246621</h1></li>
             </ol>
         </div>
         

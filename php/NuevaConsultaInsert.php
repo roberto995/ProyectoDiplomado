@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost','root','','tfidoctor');
+$con = mysqli_connect('localhost','id9756901_root','12345','id9756901_idoctor');
 
     $nombre=$_GET['nombre'];
     $fecha=$_GET['fecha'];

@@ -13,7 +13,7 @@
     <center>
         <div class="ini">
         <div class="d1">
-                <h2 class="uaq"> <img src="Pictures/nuevo.png" style="width:15px;height:15px">iDoctor</h2>
+                <h2 class="uaq">iDoctor</h2>
                 <p class="inst">Para utilizar el sistema utiliza tus datos de usuario para iniciar sesión, si tienes problemas contacta a soporte</p>
         </div >
         <input type="text" class="nombre" name="nombre" placeholder="Usuario"><br><br>
@@ -29,7 +29,7 @@
         $password = $_GET['password'];
         $_SESSION['u'] = $nombre;
  
-        $conexion = new mysqli('localhost','root','','tfidoctor');
+        $conexion = new mysqli('localhost','id9756901_root','12345','id9756901_idoctor');
 
         $busqueda = "SELECT * FROM doctores 
                     WHERE usua_d = '$nombre' and pass = '$password'";

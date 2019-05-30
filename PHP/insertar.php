@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost','root','','tfidoctor');
+$con = mysqli_connect('localhost','id9756901_root','12345','id9756901_idoctor');
 
     $mensaje = $_GET['mensaje'];
     $fecha_actual = date("Y-m-d");
