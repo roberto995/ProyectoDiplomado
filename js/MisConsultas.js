@@ -11,7 +11,7 @@ function consultas(){
     var date=new Date();
 	//AJAX,
 	paciente = new XMLHttpRequest();
-	paciente.open('GET','../PHP/pacientes.php?doctor='+doctor,true);
+	paciente.open('GET','../php/pacientes.php?doctor='+doctor,true);
 	paciente.send();
 	paciente.onreadystatechange = function(){
 		if (paciente.status == 200 && paciente.readyState == 4) {
@@ -58,7 +58,7 @@ function submt(){
 	var doctor = document.getElementById("doctor").value;
 
     busqueda = new XMLHttpRequest();
-    busqueda.open('GET','../PHP/NuevaConsultaInsert.php?nombre='+nombre+'&fecha='+fecha+'&hora='+hora+'&numero='+numero+'&consultorio='+consultorio+'&estudios='+estudios+'&doctor='+doctor);
+    busqueda.open('GET','../php/NuevaConsultaInsert.php?nombre='+nombre+'&fecha='+fecha+'&hora='+hora+'&numero='+numero+'&consultorio='+consultorio+'&estudios='+estudios+'&doctor='+doctor);
     busqueda.send();
     busqueda.onreadystatechange = function(){
         if (busqueda.status == 200 && busqueda.readyState == 4) {
@@ -121,7 +121,7 @@ function mDeta(id){
 	document.getElementById('grid-container2').style.visibility = "visible";
 	document.getElementById('grid-container3').style.visibility = "visible";
 	pacienteH = new XMLHttpRequest();
-	pacienteH.open('GET','../PHP/pacientesMD.php?doctor='+doctor,true);
+	pacienteH.open('GET','../php/pacientesMD.php?doctor='+doctor,true);
 	pacienteH.send();
 	pacienteH.onreadystatechange = function(){
 		if (pacienteH.status == 200 && pacienteH.readyState == 4) {
@@ -149,7 +149,7 @@ function mDeta(id){
 function histo_medico(idp){
 	var doctor = document.getElementById("doctor").value;
 	pacienteHM = new XMLHttpRequest();
-	pacienteHM.open('GET','../PHP/pacientesHM.php?doctor='+doctor,true);
+	pacienteHM.open('GET','../php/pacientesHM.php?doctor='+doctor,true);
 	pacienteHM.send();
 	pacienteHM.onreadystatechange = function(){
 		if (pacienteHM.status == 200 && pacienteHM.readyState == 4) {
@@ -168,7 +168,7 @@ function histo_medico(idp){
 function histo_examen(ide){
 	var doctor = document.getElementById("doctor").value;
 	pacienteEM = new XMLHttpRequest();
-	pacienteEM.open('GET','../PHP/pacientesEM.php?doctor='+doctor,true);
+	pacienteEM.open('GET','../php/pacientesEM.php?doctor='+doctor,true);
 	pacienteEM.send();
 	pacienteEM.onreadystatechange = function(){
 		if (pacienteEM.status == 200 && pacienteEM.readyState == 4) {
@@ -205,7 +205,7 @@ function insertar(){
     var persona = document.getElementById("persona").value;
     var doctor = document.getElementById("doctor").value;
     insertar = new XMLHttpRequest();
-    insertar.open('GET','../PHP/insertar.php?persona='+persona+'&mensaje='+mensaje+'&doctor='+doctor);
+    insertar.open('GET','../php/insertar.php?persona='+persona+'&mensaje='+mensaje+'&doctor='+doctor);
     insertar.send();
     insertar.onreadystatechange = function(){
         if (insertar.status == 200 && insertar.readyState == 4) {
@@ -223,7 +223,7 @@ function insertar(){
 function autocomplete(){
 	var doctor = document.getElementById("doctor").value;	
 	listaPacientesAjax = new XMLHttpRequest();
-	listaPacientesAjax.open('GET','../PHP/autocompletar.php',true);
+	listaPacientesAjax.open('GET','../php/autocompletar.php',true);
 	listaPacientesAjax.send();
 	listaPacientesAjax.onreadystatechange = function(){
 		if (listaPacientesAjax.status == 200 && listaPacientesAjax.readyState == 4) {
